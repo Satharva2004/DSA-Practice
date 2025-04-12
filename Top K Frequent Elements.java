@@ -1,22 +1,22 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        List<Integer>[] bucket = new List[nums.length+1];
-        HashMap<Integer, Integer> frequency  = new HashMap<>();
+        List<Integer>[] bucket = new List[nums.length+1]; // making a list like an bucket which can hold multiple values for each index
+        HashMap<Integer, Integer> frequency  = new HashMap<>(); //hashmap for storing the frquency of each element in the array by using getOrDefault
         for(int n:nums){
             frequency.put(n, frequency.getOrDefault(n,0)+1);
         }
-        for(int key: frequency.keySet()){
-            int frq = frequency.get(key);
-            if(bucket[frq] == null){
-                bucket[frq] = new ArrayList<>();
+        for(int key: frequency.keySet()){ //going through each character
+            int frq = frequency.get(key); // finding the value with each character by using get function
+            if(bucket[frq] == null){ //making each index in the list an ArrayList
+                bucket[frq] = new ArrayList<>(); 
             }
-            bucket[frq].add(key);
+            bucket[frq].add(key); //bucket chya index la to number taka crazy 
         }
-        int arr[] = new int[k];
+        int arr[] = new int[k]; //the result array
         int index = 0;
         for(int i=bucket.length-1;i>=0 && index < k;i--){
-            if(bucket[i] != null){
-                for(Integer in : bucket[i])
+            if(bucket[i] != null){ 
+                for(Integer in : bucket[i]) //have to convert first
                 {
                     arr[index] = in;
                     index++;
