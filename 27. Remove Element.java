@@ -1,5 +1,5 @@
 //removing elemetns form the arrya by ignoring the val element
-
+ 
 class Solution {
     public int removeElement(int[] nums, int val) {
         int count = 0;
