@@ -1,3 +1,26 @@
+//new approch where proper prefix and postfix are maintained like we calulate the the entier arrays prefix and postfix like first element is 1 and then 1*the next element and storing that in the left array into fucked up ahe bhai porper i dont know wehre this concept wll be used again but ghu for sure
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int len = nums.length;
+        int result[] = new int[len];
+        int left[] = new int[len];
+        int right[] = new int[len];
+        left[0] = 1;
+        for(int i=1;i<len;i++){
+            left[i] = left[i-1] * nums[i-1];
+        }
+        right[len-1] = 1;
+        for(int i=len-2;i>=0;i--){
+            right[i] = right[i+1] * nums[i+1];
+        }
+        for(int i=0;i<len;i++){
+            result[i] = left[i] * right[i];
+        }
+        return result;
+    }
+}  
+
+
 //using prefix and postfix basically using an pointer that runs from i=0 to the index i and other i+1 to nums.lenght
 class Solution {
     public int[] productExceptSelf(int[] nums) {
