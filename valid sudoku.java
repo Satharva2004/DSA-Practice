@@ -38,3 +38,22 @@ class Solution {
         return true;
     }
 }
+
+
+//optimized for space complexity
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        HashSet<String> str = new HashSet<>();
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                int current_char = board[i][j];
+                if(current_char != '.'){
+                    if(!str.add(current_char + "row" + i) || !str.add(current_char + "col" + j) || !str.add(current_char + "row and col" + i/3 + "-" + j/3)){
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
