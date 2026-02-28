@@ -3,8 +3,7 @@ class Solution {
         int count = 0;
         for(int i = 0; i < details.length; i++){
             String person = details[i];
-            int age = Integer.parseInt(person.substring(11, 13));
-            if(age > 60){
+            if(person.charAt(11) > '6' || (person.charAt(11) == '6' && person.charAt(12) > '0')){
                 count++;
             }
         }
