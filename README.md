@@ -1,2 +1,2 @@
-## Brain Rot at 3.30am  
+## Brain Rot at 6:7am 🕢
  
