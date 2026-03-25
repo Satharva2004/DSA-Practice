@@ -1,43 +1,29 @@
 class Solution {
     public void nextPermutation(int[] nums) {
-        int index = -1;
-        int number = 0;
-        int n = nums.length;
-        //1,5,8,4,7,6,5,3,1
-        for(int i = n-2 ; i >= 0; i--){
-            if(nums[i] < nums[i+1]){
-                index = i;
-                number = nums[i];
+        int n = nums.length-1;
+        int pivot = -1;
+        for(int i = n; i > 0; i--){
+            if(nums[i] > nums[i-1]){
+                pivot = i-1;
                 break;
             }
         }
-        if(index == -1){
-            int left = 0;
-            int right = n - 1;
-            while(left < right){
-                int temp = nums[left];
-                nums[left] = nums[right];
-                nums[right] = temp;
-                left++;
-                right--;
-            }
-            return;
+        int j = n;
+        if(pivot != -1){
+            while(nums[j] <= nums[pivot]){
+            j--;
+        }int temp = nums[pivot];
+        nums[pivot] = nums[j];
+        nums[j] = temp;
         }
-        for(int i = n - 1; i > index; i--) {
-            if(nums[i] > nums[index]) {
-                int temp = nums[i];
-                nums[i] = nums[index];
-                nums[index] = temp;
-                break;
-            }
-        }
-        int left = index + 1;
+        
+        int left = pivot + 1;
         int right = nums.length - 1;
 
-        while(left < right){
-            int temp = nums[left];
+        while (left < right) {
+            int temps = nums[left];
             nums[left] = nums[right];
-            nums[right] = temp;
+            nums[right] = temps;
             left++;
             right--;
         }
