@@ -1,7 +1,7 @@
-# Write your MySQL query statement below
-SELECT e.name, b.bonus
-FROM Employee e
-LEFT JOIN Bonus b
-ON e.empID = b.empID
-WHERE b.bonus < 1000
+-- Write your PostgreSQL query statement below
+SELECT N.name, B.bonus
+FROM Employee N
+LEFT JOIN Bonus B
+ON N.empID = B.empID
+WHERE B.bonus < 1000
 OR b.bonus IS NULL;
