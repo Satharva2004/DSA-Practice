@@ -11,23 +11,41 @@
 import java.math.BigInteger;
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result = new ListNode(0);
-        ListNode dummy = result;
+        ListNode dummy1 = l1;
+        ListNode dummy2 = l2;
+        ListNode res = new ListNode(0);
+        ListNode curr = res;
         int carry = 0;
-        while(l1 != null || l2 != null || carry != 0){
-            int sum = carry;
-            if(l1 != null){
-                sum += l1.val;
-                l1 = l1.next;
-            }
-            if(l2 != null){
-                sum += l2.val;
-                l2 = l2.next;
-            }
+        while(dummy1 != null && dummy2 != null){
+            int sum = dummy1.val + dummy2.val + carry;
             carry = sum/10;
-            dummy.next = new ListNode(sum%10);
-            dummy = dummy.next;
+            sum = sum%10;
+            curr.next = new ListNode(sum);
+            curr = curr.next;
+            dummy1 = dummy1.next;
+            dummy2 = dummy2.next;
         }
-        return result.next;
+        while(dummy1 != null){
+            int sum = dummy1.val + carry;
+            carry = sum/10;
+            sum = sum%10;
+            
+            curr.next = new ListNode(sum);
+            dummy1 = dummy1.next;
+            curr = curr.next;
+        }
+        while(dummy2 != null){
+            int sum = dummy2.val + carry;
+            carry = sum/10;
+            sum = sum%10;
+
+            curr.next = new ListNode(sum);
+            dummy2 = dummy2.next;
+            curr = curr.next;
+        }
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
+        }
+        return res.next;
     }
 }
