@@ -1,27 +1,66 @@
-# Customers Who Never Order
+<h2><a href="https://leetcode.com/problems/customers-who-never-order">Customers Who Never Order</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>Table: <code>Customers</code></p>
 
-![Difficulty: Easy](https://img.shields.io/badge/Difficulty-Easy-informational)
+<pre>
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
++-------------+---------+
+id is the primary key (column with unique values) for this table.
+Each row of this table indicates the ID and name of a customer.
+</pre>
 
-## Problem
+<p>&nbsp;</p>
 
-Table: Customers +-------------+---------+ | Column Name | Type | +-------------+---------+ | id | int | | name | varchar | +-------------+---------+ id is the primary key (column with unique values) for this table. Each row of this table indicates the ID and name of a customer. Table: Orders +-------------+------+ | Column Name | Type | +-------------+------+ | id | int | | customerId | int | +-------------+------+ id is the primary key (column with unique values) for this table. customerId is a foreign key (reference columns) of the ID from the Customers table. Each row of this table indicates the ID of an order and the ID of the customer who ordered it. Write a solution to find all customers who never order anything. Return the result table in any order . The result format is in the following example. Example 1: Input: Customers table: +----+-------+ | id | name | +----+-------+ | 1 | Joe | | 2 | Henry | | 3 | Sam | | 4 | Max | +----+-------+ Orders table: +----+------------+ | id | customerId | +----+------------+ | 1 | 3 | | 2 | 1 | +----+------------+ Output: +-----------+ | Customers | +-----------+ | Henry | | Max | +-----------+
+<p>Table: <code>Orders</code></p>
 
-## Complexity
+<pre>
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| customerId  | int  |
++-------------+------+
+id is the primary key (column with unique values) for this table.
+customerId is a foreign key (reference columns) of the ID from the Customers table.
+Each row of this table indicates the ID of an order and the ID of the customer who ordered it.
+</pre>
 
-- Time Complexity: Grok analysis unavailable. Add xAI credentials to generate this automatically.
-- Space Complexity: Grok analysis unavailable. Add xAI credentials to generate this automatically.
+<p>&nbsp;</p>
 
-## Performance
+<p>Write a solution to find all customers who never order anything.</p>
 
-- Runtime: 569 ms
-- Memory: 0B
+<p>Return the result table in <strong>any order</strong>.</p>
 
-## Submitted Code
+<p>The result format is in the following example.</p>
 
-```mysql
-# Write your MySQL query statement below
-SELECT name AS Customers
-FROM Customers
-LEFT JOIN Orders ON Customers.id = Orders.customerId
-WHERE Orders.customerId IS NULL;
-```
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> 
+Customers table:
++----+-------+
+| id | name  |
++----+-------+
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
++----+-------+
+Orders table:
++----+------------+
+| id | customerId |
++----+------------+
+| 1  | 3          |
+| 2  | 1          |
++----+------------+
+<strong>Output:</strong> 
++-----------+
+| Customers |
++-----------+
+| Henry     |
+| Max       |
++-----------+
+</pre>
