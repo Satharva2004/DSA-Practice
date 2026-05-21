@@ -31,23 +31,23 @@ A clean accepted solution with the key tradeoffs surfaced up front.
 2. Apply the core transformation or lookup logic.
 3. Return the result in the format expected by the judge.
 
-## Flow
-
-```mermaid
-flowchart LR
-  N1["Input"]
-  N2["Core logic"]
-  N3["Result"]
-  N1 --> N2
-  N2 --> N3
-```
-
 ## Complexity
 
-| Metric | Big-O | Why |
-| --- | --- | --- |
-| **Time** | `O(n)` | The submitted code appears to scan the input once. |
-| **Space** | `O(n)` | A hash-based structure can grow with the input. |
+### Growth Meter
+
+Lower bars are better. The meter maps the stated Big-O onto a simple growth scale from constant to exponential.
+
+| Metric | Big-O | Growth | Tier |
+| --- | --- | --- | --- |
+| **Time** | `O(n)` | `[###----]` | Good |
+| **Space** | `O(n)` | `[###----]` | Good |
+
+### Complexity Notes
+
+| Metric | Explanation |
+| --- | --- |
+| **Time** | The submitted code appears to scan the input once. |
+| **Space** | A hash-based structure can grow with the input. |
 
 ## Edge Cases
 
