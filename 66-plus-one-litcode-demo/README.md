@@ -31,16 +31,57 @@ A clean accepted solution with the key tradeoffs surfaced up front.
 2. Apply the core transformation or lookup logic.
 3. Return the result in the format expected by the judge.
 
+## Code Visualization
+
+The code moves from input inspection to the core transformation and returns as soon as the target condition is satisfied.
+
+```mermaid
+flowchart TD
+  S1["Receive input"]
+  S2["Initialize state"]
+  S3["Scan or transform values"]
+  S4["Return answer"]
+  S1 --> S2
+  S2 --> S3
+  S3 --> S4
+```
+
+### Dry Run
+
+**Scenario:** Representative sample input
+
+| Step | Action | State |
+| --- | --- | --- |
+| 1 | Read input | Initial state prepared |
+| 2 | Apply core logic | State changes according to the submitted code |
+| 3 | Return result | Output matches required format |
+
 ## Complexity
 
-### Growth Meter
+### Complexity Curves
 
-Lower bars are better. The meter maps the stated Big-O onto a simple growth scale from constant to exponential.
+These curves show how work grows as input size increases. The values are normalized so the shape is easy to compare, like a lightweight LeetCode-style complexity graph.
 
-| Metric | Big-O | Growth | Tier |
-| --- | --- | --- | --- |
-| **Time** | `O(n)` | `[###----]` | Good |
-| **Space** | `O(1)` | `[#------]` | Excellent |
+```mermaid
+xychart-beta
+    title "Time Complexity: O(n)"
+    x-axis [1, 2, 4, 8, 16, 32]
+    y-axis "relative growth" 0 --> 100
+    line [3, 6, 13, 25, 50, 100]
+```
+
+```mermaid
+xychart-beta
+    title "Space Complexity: O(1)"
+    x-axis [1, 2, 4, 8, 16, 32]
+    y-axis "relative growth" 0 --> 100
+    line [100, 100, 100, 100, 100, 100]
+```
+
+| Metric | Big-O | Tier |
+| --- | --- | --- |
+| **Time** | `O(n)` | Good |
+| **Space** | `O(1)` | Excellent |
 
 ### Complexity Notes
 
