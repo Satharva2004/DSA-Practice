@@ -1,48 +1,157 @@
-<h2><a href="https://leetcode.com/problems/count-the-number-of-special-characters-ii">Count the Number of Special Characters II</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>You are given a string <code>word</code>. A letter&nbsp;<code>c</code> is called <strong>special</strong> if it appears <strong>both</strong> in lowercase and uppercase in <code>word</code>, and <strong>every</strong> lowercase occurrence of <code>c</code> appears before the <strong>first</strong> uppercase occurrence of <code>c</code>.</p>
+<h2><a href="https://leetcode.com/problems/count-the-number-of-special-characters-ii">Count the Number of Special Characters II</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><div align="center">
 
-<p>Return the number of<em> </em><strong>special</strong> letters<em> </em>in<em> </em><code>word</code>.</p>
+# Count the Number of Special Characters II
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
+<sub>A clean accepted solution with the key tradeoffs surfaced up front.</sub>
 
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">word = &quot;aaAbcBC&quot;</span></p>
+[![Difficulty](https://img.shields.io/badge/Medium-f59e0b?style=flat-square)](https://leetcode.com/problems/count-the-number-of-special-characters-ii)
+![Language](https://img.shields.io/badge/Java-111111?style=flat-square)
+![Runtime](https://img.shields.io/badge/9%20ms-ff5a1f?style=flat-square)
+![Memory](https://img.shields.io/badge/48.1%20MB-2563eb?style=flat-square)
 
-<p><strong>Output:</strong> <span class="example-io">3</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>The special characters are <code>&#39;a&#39;</code>, <code>&#39;b&#39;</code>, and <code>&#39;c&#39;</code>.</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+## Snapshot
 
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">word = &quot;abc&quot;</span></p>
+| Problem | Difficulty | Language | Runtime | Memory |
+| --- | --- | --- | --- | --- |
+| [Count the Number of Special Characters II](https://leetcode.com/problems/count-the-number-of-special-characters-ii) | Medium | Java | 9 ms | 48.1 MB |
 
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
+## Intuition
 
-<p><strong>Explanation:</strong></p>
+> The solution follows the direct shape of the problem and keeps the implementation close to the required transformation.
 
-<p>There are no special characters in <code>word</code>.</p>
+## Approach
+
+1. Read the relevant input state.
+2. Apply the core transformation or lookup logic.
+3. Return the result in the format expected by the judge.
+
+## Execution Trace
+
+The code moves from input inspection to the core transformation and returns as soon as the target condition is satisfied.
+
+**Scenario:** Representative sample input
+
+| Step | Action | State |
+| --- | --- | --- |
+| 1 | Read input | Initial state prepared |
+| 2 | Apply core logic | State changes according to the submitted code |
+| 3 | Return result | Output matches required format |
+
+## Complexity
+
+<sub>Normalized growth curve. Lower and flatter is better.</sub>
+
+```mermaid
+xychart-beta
+    title "Complexity Growth"
+    x-axis [1, 2, 4, 8, 16, 32]
+    y-axis "relative cost" 0 --> 100
+    line "time O(n^2)" [1, 1, 2, 6, 25, 100]
+    line "space O(1)" [100, 100, 100, 100, 100, 100]
+```
+
+| Metric | Big-O | Tier |
+| --- | --- | --- |
+| **Time** | `O(n^2)` | Heavy |
+| **Space** | `O(1)` | Excellent |
+
+<details>
+<summary>Complexity notes</summary>
+
+| Metric | Explanation |
+| --- | --- |
+| **Time** | The submitted code contains multiple loops, so review nesting to confirm the exact bound. |
+| **Space** | Only a constant amount of extra state is apparent from the submitted code. |
+
+</details>
+
+## Checks
+
+- Smallest valid input
+- Boundary values
+- Inputs that trigger carry or empty-result behavior
+
+<details>
+<summary>Problem statement</summary>
+
+## Problem Statement
+
+You are given a string `word`. A letter `c` is called **special** if it appears **both** in lowercase and uppercase in `word`, and **every** lowercase occurrence of `c` appears before the **first** uppercase occurrence of `c`.
+
+ Return the number of* ***special** letters* *in* *`word`.
+
+ Example 1:**
+
+ **Input:** word = "aaAbcBC"
+
+ **Output:** 3
+
+ **Explanation:**
+
+ The special characters are `'a'`, `'b'`, and `'c'`.
+
+ Example 2:**
+
+ **Input:** word = "abc"
+
+ **Output:** 0
+
+ **Explanation:**
+
+ There are no special characters in `word`.
+
+ Example 3:**
+
+ **Input:** word = "AbBCab"
+
+ **Output:** 0
+
+ **Explanation:**
+
+ There are no special characters in `word`.
+
+ **Constraints:**
+
+- `1 5 `
+
+- `word` consists of only lowercase and uppercase English letters.
+
+</details>
+
+## Code
+
+```java
+class Solution {
+    public int numberOfSpecialChars(String word) {
+        int lower[] = new int[26];
+        int upper[] = new int[26];
+        Arrays.fill(lower, -1);
+        Arrays.fill(upper, -1);
+        for(int i = 0 ; i < word.length(); i++){
+            char cha = word.charAt(i);
+            if(cha >= 'a' && cha<='z'){
+                lower[cha-'a'] = i;
+            }else{
+                if(upper[cha-'A']== -1){
+                    upper[cha-'A'] = i;
+                }
+            }
+        }
+        int count = 0;
+        for(int i = 0; i < 26; i++){
+            if(lower[i] != -1 && upper[i] != -1 && lower[i] < upper[i]){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+```
+
+---
+
+<div align="center">
+<sub>Generated by <strong>LitCode</strong></sub>
 </div>
-
-<p><strong class="example">Example 3:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">word = &quot;AbBCab&quot;</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">0</span></p>
-
-<p><strong>Explanation:</strong></p>
-
-<p>There are no special characters in <code>word</code>.</p>
-</div>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= word.length &lt;= 2 * 10<sup>5</sup></code></li>
-	<li><code>word</code> consists of only lowercase and uppercase English letters.</li>
-</ul>
