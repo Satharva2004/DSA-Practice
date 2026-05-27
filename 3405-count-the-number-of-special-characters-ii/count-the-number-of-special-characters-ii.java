@@ -1,37 +1,25 @@
 class Solution {
     public int numberOfSpecialChars(String word) {
-        Set<Character> alpha = new HashSet<>();
-        Set<Character> counted = new HashSet<>();
-        Set<Character> invalid = new HashSet<>();
-
-        int count = 0;
-
-        for (int i = 0; i < word.length(); i++) {
-            char curr = word.charAt(i);
-
-            if (Character.isUpperCase(curr)) {
-                char lowChar = Character.toLowerCase(curr);
-
-                if (alpha.contains(lowChar) && !counted.contains(lowChar) && !invalid.contains(lowChar)) {
-                    count++;
-                    counted.add(lowChar);
-                }
-            } else {
-                char upperChar = Character.toUpperCase(curr);
-
-                if (alpha.contains(upperChar)) {
-                    invalid.add(curr);
-
-                    if (counted.contains(curr)) {
-                        count--;
-                        counted.remove(curr);
-                    }
+        int lower[] = new int[26];
+        int upper[] = new int[26];
+        Arrays.fill(lower, -1);
+        Arrays.fill(upper, -1);
+        for(int i = 0 ; i < word.length(); i++){
+            char cha = word.charAt(i);
+            if(cha >= 'a' && cha<='z'){
+                lower[cha-'a'] = i;
+            }else{
+                if(upper[cha-'A']== -1){
+                    upper[cha-'A'] = i;
                 }
             }
-
-            alpha.add(curr);
         }
-
+        int count = 0;
+        for(int i = 0; i < 26; i++){
+            if(lower[i] != -1 && upper[i] != -1 && lower[i] < upper[i]){
+                count++;
+            }
+        }
         return count;
     }
 }
