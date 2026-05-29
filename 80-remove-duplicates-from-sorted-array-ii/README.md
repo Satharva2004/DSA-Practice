@@ -1,53 +1,168 @@
-<h2><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii">Remove Duplicates from Sorted Array II</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Given an integer array <code>nums</code> sorted in <strong>non-decreasing order</strong>, remove some duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a> such that each unique element appears <strong>at most twice</strong>. The <strong>relative order</strong> of the elements should be kept the <strong>same</strong>.</p>
+<h2><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii">Remove Duplicates from Sorted Array II</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><div align="center">
 
-<p>Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the <strong>first part</strong> of the array <code>nums</code>. More formally, if there are <code>k</code> elements after removing the duplicates, then the first <code>k</code> elements of <code>nums</code>&nbsp;should hold the final result. It does not matter what you leave beyond the first&nbsp;<code>k</code>&nbsp;elements.</p>
+# Remove Duplicates from Sorted Array II
 
-<p>Return <code>k</code><em> after placing the final result in the first </em><code>k</code><em> slots of </em><code>nums</code>.</p>
+<sub>A clean accepted solution with the key tradeoffs surfaced up front.</sub>
 
-<p>Do <strong>not</strong> allocate extra space for another array. You must do this by <strong>modifying the input array <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank">in-place</a></strong> with O(1) extra memory.</p>
+[![Difficulty](https://img.shields.io/badge/Medium-f59e0b?style=flat-square)](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii)
+![Language](https://img.shields.io/badge/Java-111111?style=flat-square)
+![Runtime](https://img.shields.io/badge/1%20ms-ff5a1f?style=flat-square)
+![Memory](https://img.shields.io/badge/48.3%20MB-2563eb?style=flat-square)
 
-<p><strong>Custom Judge:</strong></p>
+</div>
 
-<p>The judge will test your solution with the following code:</p>
+## Snapshot
 
-<pre>
+| Problem | Difficulty | Language | Runtime | Memory |
+| --- | --- | --- | --- | --- |
+| [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii) | Medium | Java | 1 ms | 48.3 MB |
+
+## Intuition
+
+> The solution follows the direct shape of the problem and keeps the implementation close to the required transformation.
+
+## Approach
+
+1. Read the relevant input state.
+2. Apply the core transformation or lookup logic.
+3. Return the result in the format expected by the judge.
+
+## Execution Trace
+
+The code moves from input inspection to the core transformation and returns as soon as the target condition is satisfied.
+
+**Scenario:** Representative sample input
+
+| Step | Action | State |
+| --- | --- | --- |
+| 1 | Read input | Initial state prepared |
+| 2 | Apply core logic | State changes according to the submitted code |
+| 3 | Return result | Output matches required format |
+
+## Complexity
+
+<sub>Normalized growth curve. Lower and flatter is better.</sub>
+
+```mermaid
+xychart-beta
+    title "Complexity Growth"
+    x-axis [1, 2, 4, 8, 16, 32]
+    y-axis "relative cost" 0 --> 100
+    line "time O(n)" [3, 6, 13, 25, 50, 100]
+    line "space O(1)" [100, 100, 100, 100, 100, 100]
+```
+
+| Metric | Big-O | Tier |
+| --- | --- | --- |
+| **Time** | `O(n)` | Good |
+| **Space** | `O(1)` | Excellent |
+
+<details>
+<summary>Complexity notes</summary>
+
+| Metric | Explanation |
+| --- | --- |
+| **Time** | The submitted code appears to scan the input once. |
+| **Space** | Only a constant amount of extra state is apparent from the submitted code. |
+
+</details>
+
+## Checks
+
+- Smallest valid input
+- Boundary values
+- Inputs that trigger carry or empty-result behavior
+
+<details>
+<summary>Problem statement</summary>
+
+## Problem Statement
+
+Given an integer array `nums` sorted in **non-decreasing order**, remove some duplicates **in-place** such that each unique element appears **at most twice**. The **relative order** of the elements should be kept the **same**.
+
+ Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the **first part** of the array `nums`. More formally, if there are `k` elements after removing the duplicates, then the first `k` elements of `nums` should hold the final result. It does not matter what you leave beyond the first `k` elements.
+
+ Return `k`* after placing the final result in the first *`k`* slots of *`nums`.
+
+ Do **not** allocate extra space for another array. You must do this by **modifying the input array in-place ** with O(1) extra memory.
+
+ **Custom Judge:**
+
+ The judge will test your solution with the following code:
+
+```text
+
 int[] nums = [...]; // Input array
 int[] expectedNums = [...]; // The expected answer with correct length
 
 int k = removeDuplicates(nums); // Calls your implementation
 
 assert k == expectedNums.length;
-for (int i = 0; i &lt; k; i++) {
-    assert nums[i] == expectedNums[i];
+for (int i = 0; i If all assertions pass, then your solution will be **accepted**.
+
+ Example 1:**
+
+```text
+
+**Input:** nums = [1,1,1,2,2,3]
+**Output:** 5, nums = [1,1,2,2,3,_]
+**Explanation:** Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+```
+
+ Example 2:**
+
+```text
+
+**Input:** nums = [0,0,1,1,1,1,2,3,3]
+**Output:** 7, nums = [0,0,1,1,2,3,3,_,_]
+**Explanation:** Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+```
+
+ **Constraints:**
+
+- `1 4 `
+
+- `-10 4 4 `
+
+- `nums` is sorted in **non-decreasing** order.
+
+</details>
+
+## Code
+
+```java
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int count = 0;
+        int i = 1;
+        int j = 1;
+
+        while (i < nums.length) {
+            if (nums[i] == nums[i - 1]) {
+                count++;
+            } else {
+                count = 0;
+            }
+
+            if (count < 2) {
+                nums[j] = nums[i];
+                j++;
+            }
+
+            i++;
+        }
+
+        return j;
+    }
 }
-</pre>
+```
 
-<p>If all assertions pass, then your solution will be <strong>accepted</strong>.</p>
+---
 
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [1,1,1,2,2,3]
-<strong>Output:</strong> 5, nums = [1,1,2,2,3,_]
-<strong>Explanation:</strong> Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-</pre>
-
-<p><strong class="example">Example 2:</strong></p>
-
-<pre>
-<strong>Input:</strong> nums = [0,0,1,1,1,1,2,3,3]
-<strong>Output:</strong> 7, nums = [0,0,1,1,2,3,3,_,_]
-<strong>Explanation:</strong> Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-</pre>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>
-	<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
-	<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
-</ul>
+<div align="center">
+<sub>Generated by <strong>LitCode</strong></sub>
+</div>
