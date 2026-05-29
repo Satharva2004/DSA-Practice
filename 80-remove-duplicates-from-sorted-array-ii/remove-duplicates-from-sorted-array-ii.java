@@ -1,19 +1,24 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int left = 0, right = 0;
-        int i = 0;
-        int n = nums.length;
-        while(i < n){
-            int count = 1;
-            while(i + count < n && nums[i] == nums[i + count]){
+        int count = 0;
+        int i = 1;
+        int j = 1;
+
+        while (i < nums.length) {
+            if (nums[i] == nums[i - 1]) {
                 count++;
+            } else {
+                count = 0;
             }
-            int times = Math.min(2,count);
-            for (int k = 0; k < times; k++) {
-                nums[left++] = nums[i];
+
+            if (count < 2) {
+                nums[j] = nums[i];
+                j++;
             }
-            i += count;
+
+            i++;
         }
-        return left;
+
+        return j;
     }
 }
