@@ -1,104 +1,161 @@
-<h2><a href="https://leetcode.com/problems/earliest-finish-time-for-land-and-water-rides-i">Earliest Finish Time for Land and Water Rides I</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p data-end="143" data-start="53">You are given two categories of theme park attractions: <strong data-end="122" data-start="108">land rides</strong> and <strong data-end="142" data-start="127">water rides</strong>.</p>
+<h2><a href="https://leetcode.com/problems/earliest-finish-time-for-land-and-water-rides-i">Earliest Finish Time for Land and Water Rides I</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><div align="center">
 
-<ul>
-	<li data-end="163" data-start="147"><strong data-end="161" data-start="147">Land rides</strong>
+# Earliest Finish Time for Land and Water Rides I
 
-	<ul>
-		<li data-end="245" data-start="168"><code data-end="186" data-start="168">landStartTime[i]</code> &ndash; the earliest time the <code>i<sup>th</sup></code> land ride can be boarded.</li>
-		<li data-end="306" data-start="250"><code data-end="267" data-start="250">landDuration[i]</code> &ndash; how long the <code>i<sup>th</sup></code> land ride lasts.</li>
-	</ul>
-	</li>
-	<li><strong data-end="325" data-start="310">Water rides</strong>
-	<ul>
-		<li><code data-end="351" data-start="332">waterStartTime[j]</code> &ndash; the earliest time the <code>j<sup>th</sup></code> water ride can be boarded.</li>
-		<li><code data-end="434" data-start="416">waterDuration[j]</code> &ndash; how long the <code>j<sup>th</sup></code> water ride lasts.</li>
-	</ul>
-	</li>
-</ul>
+<sub>A clean accepted solution with the key tradeoffs surfaced up front.</sub>
 
-<p data-end="569" data-start="476">A tourist must experience <strong data-end="517" data-start="502">exactly one</strong> ride from <strong data-end="536" data-start="528">each</strong> category, in <strong data-end="566" data-start="550">either order</strong>.</p>
+[![Difficulty](https://img.shields.io/badge/Easy-2ea44f?style=flat-square)](https://leetcode.com/problems/earliest-finish-time-for-land-and-water-rides-i)
+![Language](https://img.shields.io/badge/Java-111111?style=flat-square)
+![Runtime](https://img.shields.io/badge/1%20ms-ff5a1f?style=flat-square)
+![Memory](https://img.shields.io/badge/47.1%20MB-2563eb?style=flat-square)
 
-<ul>
-	<li data-end="641" data-start="573">A ride may be started at its opening time or <strong data-end="638" data-start="618">any later moment</strong>.</li>
-	<li data-end="715" data-start="644">If a ride is started at time <code data-end="676" data-start="673">t</code>, it finishes at time <code data-end="712" data-start="698">t + duration</code>.</li>
-	<li data-end="834" data-start="718">Immediately after finishing one ride the tourist may board the other (if it is already open) or wait until it opens.</li>
-</ul>
-
-<p data-end="917" data-start="836">Return the <strong data-end="873" data-start="847">earliest possible time</strong> at which the tourist can finish both rides.</p>
-
-<p>&nbsp;</p>
-<p><strong class="example">Example 1:</strong></p>
-
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">landStartTime = [2,8], landDuration = [4,1], waterStartTime = [6], waterDuration = [3]</span></p>
-
-<p><strong>Output:</strong> <span class="example-io">9</span></p>
-
-<p><strong>Explanation:</strong>​​​​​​​</p>
-
-<ul>
-	<li data-end="181" data-start="145">Plan A (land ride 0 &rarr; water ride 0):
-	<ul>
-		<li data-end="272" data-start="186">Start land ride 0 at time <code data-end="234" data-start="212">landStartTime[0] = 2</code>. Finish at <code data-end="271" data-start="246">2 + landDuration[0] = 6</code>.</li>
-		<li data-end="392" data-start="277">Water ride 0 opens at time <code data-end="327" data-start="304">waterStartTime[0] = 6</code>. Start immediately at <code data-end="353" data-start="350">6</code>, finish at <code data-end="391" data-start="365">6 + waterDuration[0] = 9</code>.</li>
-	</ul>
-	</li>
-	<li data-end="432" data-start="396">Plan B (water ride 0 &rarr; land ride 1):
-	<ul>
-		<li data-end="526" data-start="437">Start water ride 0 at time <code data-end="487" data-start="464">waterStartTime[0] = 6</code>. Finish at <code data-end="525" data-start="499">6 + waterDuration[0] = 9</code>.</li>
-		<li data-end="632" data-start="531">Land ride 1 opens at <code data-end="574" data-start="552">landStartTime[1] = 8</code>. Start at time <code data-end="593" data-start="590">9</code>, finish at <code data-end="631" data-start="605">9 + landDuration[1] = 10</code>.</li>
-	</ul>
-	</li>
-	<li data-end="672" data-start="636">Plan C (land ride 1 &rarr; water ride 0):
-	<ul>
-		<li data-end="763" data-start="677">Start land ride 1 at time <code data-end="725" data-start="703">landStartTime[1] = 8</code>. Finish at <code data-end="762" data-start="737">8 + landDuration[1] = 9</code>.</li>
-		<li data-end="873" data-start="768">Water ride 0 opened at <code data-end="814" data-start="791">waterStartTime[0] = 6</code>. Start at time <code data-end="833" data-start="830">9</code>, finish at <code data-end="872" data-start="845">9 + waterDuration[0] = 12</code>.</li>
-	</ul>
-	</li>
-	<li data-end="913" data-start="877">Plan D (water ride 0 &rarr; land ride 0):
-	<ul>
-		<li data-end="1007" data-start="918">Start water ride 0 at time <code data-end="968" data-start="945">waterStartTime[0] = 6</code>. Finish at <code data-end="1006" data-start="980">6 + waterDuration[0] = 9</code>.</li>
-		<li data-end="1114" data-start="1012">Land ride 0 opened at <code data-end="1056" data-start="1034">landStartTime[0] = 2</code>. Start at time <code data-end="1075" data-start="1072">9</code>, finish at <code data-end="1113" data-start="1087">9 + landDuration[0] = 13</code>.</li>
-	</ul>
-	</li>
-</ul>
-
-<p data-end="1161" data-is-last-node="" data-is-only-node="" data-start="1116">Plan A gives the earliest finish time of 9.</p>
 </div>
 
-<p><strong class="example">Example 2:</strong></p>
+## Quick View
 
-<div class="example-block">
-<p><strong>Input:</strong> <span class="example-io">landStartTime = [5], landDuration = [3], waterStartTime = [1], waterDuration = [10]</span></p>
+| Problem | Difficulty | Language | Runtime | Memory |
+| --- | --- | --- | --- | --- |
+| [Earliest Finish Time for Land and Water Rides I](https://leetcode.com/problems/earliest-finish-time-for-land-and-water-rides-i) | Easy | Java | 1 ms | 47.1 MB |
 
-<p><strong>Output:</strong> <span class="example-io">14</span></p>
+## Approach
 
-<p><strong>Explanation:</strong>​​​​​​​</p>
+| View | Notes |
+| --- | --- |
+| **Code uses** | Direct simulation |
+| **Better pattern** | Problem-specific optimal pattern |
+| **Current** | The submitted solution follows a direct accepted path for the problem constraints. |
+| **Should use instead** | Confirm whether the same result can be reached with fewer passes or less auxiliary state. |
 
-<ul data-end="1589" data-start="1086">
-	<li data-end="1124" data-start="1088">Plan A (water ride 0 &rarr; land ride 0):
-	<ul>
-		<li data-end="1219" data-start="1129">Start water ride 0 at time <code data-end="1179" data-start="1156">waterStartTime[0] = 1</code>. Finish at <code data-end="1218" data-start="1191">1 + waterDuration[0] = 11</code>.</li>
-		<li data-end="1338" data-start="1224">Land ride 0 opened at <code data-end="1268" data-start="1246">landStartTime[0] = 5</code>. Start immediately at <code data-end="1295" data-start="1291">11</code> and finish at <code data-end="1337" data-start="1310">11 + landDuration[0] = 14</code>.</li>
-	</ul>
-	</li>
-	<li data-end="1378" data-start="1342">Plan B (land ride 0 &rarr; water ride 0):
-	<ul>
-		<li data-end="1469" data-start="1383">Start land ride 0 at time <code data-end="1431" data-start="1409">landStartTime[0] = 5</code>. Finish at <code data-end="1468" data-start="1443">5 + landDuration[0] = 8</code>.</li>
-		<li data-end="1589" data-start="1474">Water ride 0 opened at <code data-end="1520" data-start="1497">waterStartTime[0] = 1</code>. Start immediately at <code data-end="1546" data-start="1543">8</code> and finish at <code data-end="1588" data-start="1561">8 + waterDuration[0] = 18</code>.</li>
-	</ul>
-	</li>
-</ul>
+## Complexity
 
-<p data-end="1640" data-is-last-node="" data-is-only-node="" data-start="1591">Plan A provides the earliest finish time of 14.<strong>​​​​​​​</strong></p>
+<sub>Free complexity insight. Each graph is normalized on its own x/y plane; lower and flatter is better.</sub>
+
+| Time | Space |
+| --- | --- |
+| <img src="https://quickchart.io/chart?width=310&height=190&backgroundColor=white&c=%7B%22type%22%3A%22line%22%2C%22data%22%3A%7B%22labels%22%3A%5B1%2C2%2C4%2C8%2C16%2C32%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Time%20O(n%5E2)%22%2C%22data%22%3A%5B1%2C1%2C2%2C6%2C25%2C100%5D%2C%22borderColor%22%3A%22%23ff6b35%22%2C%22backgroundColor%22%3A%22rgba(255%2C107%2C53%2C0.12)%22%2C%22borderWidth%22%3A3%2C%22pointRadius%22%3A3%2C%22tension%22%3A0.35%2C%22fill%22%3Atrue%7D%5D%7D%2C%22options%22%3A%7B%22title%22%3A%7B%22display%22%3Atrue%2C%22text%22%3A%22Time%3A%20O(n%5E2)%22%2C%22fontSize%22%3A14%2C%22fontColor%22%3A%22%23111827%22%7D%2C%22legend%22%3A%7B%22display%22%3Atrue%2C%22position%22%3A%22bottom%22%2C%22labels%22%3A%7B%22boxWidth%22%3A10%2C%22fontSize%22%3A10%7D%7D%2C%22scales%22%3A%7B%22xAxes%22%3A%5B%7B%22scaleLabel%22%3A%7B%22display%22%3Atrue%2C%22labelString%22%3A%22input%20size%20n%22%7D%2C%22gridLines%22%3A%7B%22color%22%3A%22rgba(17%2C24%2C39%2C0.08)%22%7D%7D%5D%2C%22yAxes%22%3A%5B%7B%22ticks%22%3A%7B%22min%22%3A0%2C%22max%22%3A100%2C%22stepSize%22%3A25%7D%2C%22scaleLabel%22%3A%7B%22display%22%3Atrue%2C%22labelString%22%3A%22relative%20cost%22%7D%2C%22gridLines%22%3A%7B%22color%22%3A%22rgba(17%2C24%2C39%2C0.08)%22%7D%7D%5D%7D%7D%7D" width="310" alt="Time complexity graph for O(n^2)" /> | <img src="https://quickchart.io/chart?width=310&height=190&backgroundColor=white&c=%7B%22type%22%3A%22line%22%2C%22data%22%3A%7B%22labels%22%3A%5B1%2C2%2C4%2C8%2C16%2C32%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Space%20O(1)%22%2C%22data%22%3A%5B100%2C100%2C100%2C100%2C100%2C100%5D%2C%22borderColor%22%3A%22%232563eb%22%2C%22backgroundColor%22%3A%22rgba(37%2C99%2C235%2C0.1)%22%2C%22borderWidth%22%3A3%2C%22pointRadius%22%3A3%2C%22tension%22%3A0.35%2C%22fill%22%3Atrue%7D%5D%7D%2C%22options%22%3A%7B%22title%22%3A%7B%22display%22%3Atrue%2C%22text%22%3A%22Space%3A%20O(1)%22%2C%22fontSize%22%3A14%2C%22fontColor%22%3A%22%23111827%22%7D%2C%22legend%22%3A%7B%22display%22%3Atrue%2C%22position%22%3A%22bottom%22%2C%22labels%22%3A%7B%22boxWidth%22%3A10%2C%22fontSize%22%3A10%7D%7D%2C%22scales%22%3A%7B%22xAxes%22%3A%5B%7B%22scaleLabel%22%3A%7B%22display%22%3Atrue%2C%22labelString%22%3A%22input%20size%20n%22%7D%2C%22gridLines%22%3A%7B%22color%22%3A%22rgba(17%2C24%2C39%2C0.08)%22%7D%7D%5D%2C%22yAxes%22%3A%5B%7B%22ticks%22%3A%7B%22min%22%3A0%2C%22max%22%3A100%2C%22stepSize%22%3A25%7D%2C%22scaleLabel%22%3A%7B%22display%22%3Atrue%2C%22labelString%22%3A%22relative%20cost%22%7D%2C%22gridLines%22%3A%7B%22color%22%3A%22rgba(17%2C24%2C39%2C0.08)%22%7D%7D%5D%7D%7D%7D" width="310" alt="Space complexity graph for O(1)" /> |
+| **`O(n^2)`**<br>The submitted code contains multiple loops, so review nesting to confirm the exact bound. | **`O(1)`**<br>Only a constant amount of extra state is apparent from the submitted code. |
+
+## Checks
+
+- Smallest valid input
+- Boundary values
+- Inputs that trigger carry or empty-result behavior
+
+<details>
+<summary>Problem statement</summary>
+
+## Problem Statement
+
+You are given two categories of theme park attractions: land rides** and water rides**.
+
+ Land rides**
+
+ landStartTime[i]` &ndash; the earliest time the `i th ` land ride can be boarded.
+ landDuration[i]` &ndash; how long the `i th ` land ride lasts.
+
+- Water rides**
+
+- waterStartTime[j]` &ndash; the earliest time the `j th ` water ride can be boarded.
+
+- waterDuration[j]` &ndash; how long the `j th ` water ride lasts.
+
+ A tourist must experience exactly one** ride from each** category, in either order**.
+
+ A ride may be started at its opening time or any later moment**.
+ If a ride is started at time t`, it finishes at time t + duration`.
+ Immediately after finishing one ride the tourist may board the other (if it is already open) or wait until it opens.
+
+ Return the earliest possible time** at which the tourist can finish both rides.
+
+ Example 1:**
+
+ **Input:** landStartTime = [2,8], landDuration = [4,1], waterStartTime = [6], waterDuration = [3]
+
+ **Output:** 9
+
+ **Explanation:**​​​​​​​
+
+ Plan A (land ride 0 &rarr; water ride 0):
+
+ Start land ride 0 at time landStartTime[0] = 2`. Finish at 2 + landDuration[0] = 6`.
+ Water ride 0 opens at time waterStartTime[0] = 6`. Start immediately at 6`, finish at 6 + waterDuration[0] = 9`.
+
+ Plan B (water ride 0 &rarr; land ride 1):
+
+ Start water ride 0 at time waterStartTime[0] = 6`. Finish at 6 + waterDuration[0] = 9`.
+ Land ride 1 opens at landStartTime[1] = 8`. Start at time 9`, finish at 9 + landDuration[1] = 10`.
+
+ Plan C (land ride 1 &rarr; water ride 0):
+
+ Start land ride 1 at time landStartTime[1] = 8`. Finish at 8 + landDuration[1] = 9`.
+ Water ride 0 opened at waterStartTime[0] = 6`. Start at time 9`, finish at 9 + waterDuration[0] = 12`.
+
+ Plan D (water ride 0 &rarr; land ride 0):
+
+ Start water ride 0 at time waterStartTime[0] = 6`. Finish at 6 + waterDuration[0] = 9`.
+ Land ride 0 opened at landStartTime[0] = 2`. Start at time 9`, finish at 9 + landDuration[0] = 13`.
+
+ Plan A gives the earliest finish time of 9.
+
+ Example 2:**
+
+ **Input:** landStartTime = [5], landDuration = [3], waterStartTime = [1], waterDuration = [10]
+
+ **Output:** 14
+
+ **Explanation:**​​​​​​​
+
+ Plan A (water ride 0 &rarr; land ride 0):
+
+ Start water ride 0 at time waterStartTime[0] = 1`. Finish at 1 + waterDuration[0] = 11`.
+ Land ride 0 opened at landStartTime[0] = 5`. Start immediately at 11` and finish at 11 + landDuration[0] = 14`.
+
+ Plan B (land ride 0 &rarr; water ride 0):
+
+ Start land ride 0 at time landStartTime[0] = 5`. Finish at 5 + landDuration[0] = 8`.
+ Water ride 0 opened at waterStartTime[0] = 1`. Start immediately at 8` and finish at 8 + waterDuration[0] = 18`.
+
+ Plan A provides the earliest finish time of 14.**​​​​​​​**
+
+ **Constraints:**
+
+ 1 landStartTime.length == landDuration.length == n`
+ waterStartTime.length == waterDuration.length == m`
+ 1
+
+</details>
+
+## Code
+
+```java
+class Solution {
+    public int earliestFinishTime(int[] landStartTime, int[] landDuration, int[] waterStartTime, int[] waterDuration) {
+        int land = Integer.MAX_VALUE;
+        int water = Integer.MAX_VALUE;
+        int land_water = Integer.MAX_VALUE;
+        int water_land = Integer.MAX_VALUE;
+        int n = landStartTime.length;
+        int m = waterStartTime.length;
+        for(int i = 0; i < n; i++){
+            land = Math.min(land, landStartTime[i] + landDuration[i]);
+        }
+        for(int j = 0; j < m; j++){
+            water = Math.min(water,waterStartTime[j] + waterDuration[j]);
+            land_water = Math.min(land_water, Math.max(land, waterStartTime[j])+waterDuration[j]);
+        }
+        for(int c = 0; c < n; c++){
+            water_land = Math.min(
+                water_land,
+                Math.max(water, landStartTime[c]) + landDuration[c]
+            );
+        }
+        return Math.min(land_water, water_land);
+    }
+}
+```
+
+---
+
+<div align="center">
+<sub>Generated by <strong>LitCode</strong></sub>
 </div>
-
-<p>&nbsp;</p>
-<p><strong>Constraints:</strong></p>
-
-<ul>
-	<li data-end="38" data-start="16"><code data-end="36" data-start="16">1 &lt;= n, m &lt;= 100</code></li>
-	<li data-end="93" data-start="41"><code data-end="91" data-start="41">landStartTime.length == landDuration.length == n</code></li>
-	<li data-end="150" data-start="96"><code data-end="148" data-start="96">waterStartTime.length == waterDuration.length == m</code></li>
-	<li data-end="237" data-start="153"><code data-end="235" data-start="153">1 &lt;= landStartTime[i], landDuration[i], waterStartTime[j], waterDuration[j] &lt;= 1000</code></li>
-</ul>
