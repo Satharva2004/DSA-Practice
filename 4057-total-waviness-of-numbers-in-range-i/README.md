@@ -8,8 +8,8 @@
 ![Language](https://img.shields.io/badge/Java-111111?style=flat-square)
 ![Runtime](https://img.shields.io/badge/26%20ms-ff5a1f?style=flat-square)
 ![Runtime Beats](https://img.shields.io/badge/beats-72.86%25-22c55e?style=flat-square)
-![Memory](https://img.shields.io/badge/46.3%20MB-2563eb?style=flat-square)
-![Memory Beats](https://img.shields.io/badge/beats-67.29%25-22c55e?style=flat-square)
+![Memory](https://img.shields.io/badge/46.6%20MB-2563eb?style=flat-square)
+![Memory Beats](https://img.shields.io/badge/beats-20.45%25-22c55e?style=flat-square)
 
 </div>
 
@@ -17,14 +17,14 @@
 
 | Problem | Difficulty | Language | Runtime | Memory |
 | --- | --- | --- | --- | --- |
-| [Total Waviness of Numbers in Range I](https://leetcode.com/problems/total-waviness-of-numbers-in-range-i) | Medium | Java | 26 ms | 46.3 MB |
+| [Total Waviness of Numbers in Range I](https://leetcode.com/problems/total-waviness-of-numbers-in-range-i) | Medium | Java | 26 ms | 46.6 MB |
 
 ## Performance
 
 | Metric | Your result | Standing |
 | --- | --- | --- |
 | Runtime | **26 ms** | Beats **72.86%** |
-| Memory | **46.3 MB** | Beats **67.29%** |
+| Memory | **46.6 MB** | Beats **20.45%** |
 
 ## Approach
 
@@ -130,17 +130,23 @@ In the range `[198, 202]`:
 
 ```java
 class Solution {
+    int count = 0;
     public int totalWaviness(int num1, int num2) {
-        int count = 0;
         for(int i = num1; i <= num2; i++){
-            String sb = Integer.toString(i);
-            for (int j = 1; j < sb.length() - 1; j++) {
-                int prev = sb.charAt(j - 1) - '0';
-                int curr = sb.charAt(j) - '0';
-                int next = sb.charAt(j + 1) - '0';
-                if(curr > prev && curr > next || curr < prev && curr < next){
-                    count++;
-                }
+           generator(i);
+        }
+        return count;
+    }
+    public int generator(int i)
+    {
+        String sb = Integer.toString(i);
+        for (int j = 1; j < sb.length() - 1; j++) 
+        {
+            int prev = sb.charAt(j - 1) - '0';
+            int curr = sb.charAt(j) - '0';
+            int next = sb.charAt(j + 1) - '0';
+            if(curr > prev && curr > next || curr < prev && curr < next){
+                count++;
             }
         }
         return count;
