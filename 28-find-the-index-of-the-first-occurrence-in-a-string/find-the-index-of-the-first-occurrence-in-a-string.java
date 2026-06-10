@@ -1,22 +1,21 @@
 class Solution {
     public int strStr(String haystack, String needle) {
-        HashMap<Integer, Character> map = new HashMap<>();
-        for(int i = 0; i < haystack.length();i++){
-            map.put(i, haystack.charAt(i));
+        if (needle.length() == 0) {
+            return 0;
         }
-
-        for(int i = 0; i < haystack.length();i++){
-            if(map.get(i) == needle.charAt(0)){
-                int k = i;
-                boolean found = true;
-                for(int j = 0; j < needle.length(); j++){
-                    if(k >= haystack.length() || map.get(k) != needle.charAt(j)){
-                        found = false;
+        for(int i = 0; i <= haystack.length() - needle.length(); i++){
+            char curr = haystack.charAt(i);
+            if(curr == needle.charAt(0)){
+                int j = 0;
+                int m = i;
+                while(j < needle.length()){
+                    if(haystack.charAt(m) != needle.charAt(j)){
                         break;
                     }
-                    k++;
+                    m++;
+                    j++;
                 }
-                if(found) return i;
+                if(j == needle.length()) return i;
             }
         }
         return -1;
