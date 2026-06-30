@@ -22,7 +22,7 @@
 | | Time | Space |
 |---|------|-------|
 | **Complexity** | `O(n)` | `O(n)` |
-| **Explanation** | single loop iterating over the input array | using a Map to store elements, in the worst case all elements are stored |
+| **Explanation** | single loop through the input array | using a Map to store up to n elements |
 | **Confidence** | High | High |
 
 <details>
@@ -62,5 +62,5 @@ function twoSum(nums, target) {
 ---
 
 <div align="center">
-<sub>Synced by <strong>LitCode</strong> on April 25, 58466</sub>
+<sub>Synced by <strong>LitCode</strong> on April 28, 58466</sub>
 </div>
