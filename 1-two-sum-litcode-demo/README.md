@@ -22,7 +22,7 @@
 | | Time | Space |
 |---|------|-------|
 | **Complexity** | `O(n)` | `O(n)` |
-| **Explanation** | single loop through the input array | using a Map to store up to n elements |
+| **Explanation** | single loop through the nums array | Map storing elements from the nums array |
 | **Confidence** | High | High |
 
 <details>
