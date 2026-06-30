@@ -22,7 +22,7 @@
 | | Time | Space |
 |---|------|-------|
 | **Complexity** | `O(n)` | `O(n)` |
-| **Explanation** | a single loop scans the input array of length n | a new array of length n+1 is potentially created |
+| **Explanation** | a single loop iterates through the input array of size n | in the worst case, a new array of size n+1 is created |
 | **Confidence** | High | High |
 
 <details>
@@ -64,5 +64,5 @@ class Solution {
 ---
 
 <div align="center">
-<sub>Synced by <strong>LitCode</strong> on April 25, 58466</sub>
+<sub>Synced by <strong>LitCode</strong> on April 28, 58466</sub>
 </div>
