@@ -3,11 +3,11 @@
 # 🔥 LitCode Solutions
 
 [![Total](https://img.shields.io/badge/Total-1-blue?style=flat-square)](.)
-[![Easy](https://img.shields.io/badge/Easy-1-2ea44f?style=flat-square)](.)
-[![Medium](https://img.shields.io/badge/Medium-0-d97706?style=flat-square)](.)
+[![Easy](https://img.shields.io/badge/Easy-0-2ea44f?style=flat-square)](.)
+[![Medium](https://img.shields.io/badge/Medium-1-d97706?style=flat-square)](.)
 [![Hard](https://img.shields.io/badge/Hard-0-dc2626?style=flat-square)](.)
 
-*Auto-synced by [LitCode](https://github.com/Satharva2004/LitCode) · Last updated 2026-07-01*
+*Auto-synced by [LitCode](https://github.com/Satharva2004/LitCode) · Last updated 2026-07-06*
 
 </div>
 
@@ -17,8 +17,8 @@
 
 | Difficulty | Count | Progress |
 |:----------|------:|---------|
-| 🟢 Easy | 1 | `████████████` |
-| 🟡 Medium | 0 | `░░░░░░░░░░░░` |
+| 🟢 Easy | 0 | `░░░░░░░░░░░░` |
+| 🟡 Medium | 1 | `████████████` |
 | 🔴 Hard | 0 | `░░░░░░░░░░░░` |
 | **Total** | **1** | |
 
@@ -31,7 +31,7 @@
 
 | # | Problem | Difficulty | Solved |
 |---|---------|------------|--------|
-| 1 | [Two Sum](./1-two-sum) | 🟢 Easy | 2026-07-01 |
+| 1222 | [Remove Covered Intervals](./1222-remove-covered-intervals) | 🟡 Medium | 2026-07-06 |
 
 </details>
 
