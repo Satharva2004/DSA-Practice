@@ -31,7 +31,7 @@
 
 | # | Problem | Difficulty | Solved |
 |---|---------|------------|--------|
-| 1222 | [Remove Covered Intervals](./1222-remove-covered-intervals) | 🟡 Medium | 2026-07-06 |
+| 56 | [Merge Intervals](./56-merge-intervals) | 🟡 Medium | 2026-07-06 |
 
 </details>
 
