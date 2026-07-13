@@ -7,13 +7,13 @@ class Solution {
             if(nums1[len1] > nums2[len2]){
                 nums1[k] = nums1[len1];
                 len1--;
-            }else {
+            }else{
                 nums1[k] = nums2[len2];
                 len2--;
             }
             k--;
         }
-        while (len2 >= 0) {
+        while(len2>=0){
             nums1[k] = nums2[len2];
             len2--;
             k--;
