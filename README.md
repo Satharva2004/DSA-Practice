@@ -2,8 +2,8 @@
 
 # 🔥 LitCode Solutions
 
-[![Total](https://img.shields.io/badge/Total-11-blue?style=flat-square)](.)
-[![Easy](https://img.shields.io/badge/Easy-4-2ea44f?style=flat-square)](.)
+[![Total](https://img.shields.io/badge/Total-12-blue?style=flat-square)](.)
+[![Easy](https://img.shields.io/badge/Easy-5-2ea44f?style=flat-square)](.)
 [![Medium](https://img.shields.io/badge/Medium-7-d97706?style=flat-square)](.)
 [![Hard](https://img.shields.io/badge/Hard-0-dc2626?style=flat-square)](.)
 
@@ -17,17 +17,17 @@
 
 | Difficulty | Count | Progress |
 |:----------|------:|---------|
-| 🟢 Easy | 4 | `████░░░░░░░░` |
-| 🟡 Medium | 7 | `████████░░░░` |
+| 🟢 Easy | 5 | `█████░░░░░░░` |
+| 🟡 Medium | 7 | `███████░░░░░` |
 | 🔴 Hard | 0 | `░░░░░░░░░░░░` |
-| **Total** | **11** | |
+| **Total** | **12** | |
 
 ---
 
 ## 🗂️ Problems by Topic
 
 <details>
-<summary><b>Uncategorized</b> &nbsp;·&nbsp; 11 problems</summary>
+<summary><b>Uncategorized</b> &nbsp;·&nbsp; 12 problems</summary>
 
 | # | Problem | Difficulty | Solved |
 |---|---------|------------|--------|
@@ -35,6 +35,7 @@
 | 56 | [Merge Intervals](./56-merge-intervals) | 🟡 Medium | 2026-07-06 |
 | 69 | [Sqrt(x)](./69-sqrtx) | 🟢 Easy | 2026-07-11 |
 | 77 | [Combinations](./77-combinations) | 🟡 Medium | 2026-07-12 |
+| 88 | [Merge Sorted Array](./88-merge-sorted-array) | 🟢 Easy | 2026-07-13 |
 | 98 | [Validate Binary Search Tree](./98-validate-binary-search-tree) | 🟡 Medium | 2026-07-10 |
 | 130 | [Surrounded Regions](./130-surrounded-regions) | 🟡 Medium | 2026-07-12 |
 | 133 | [Clone Graph](./133-clone-graph) | 🟡 Medium | 2026-07-13 |
