@@ -2,12 +2,12 @@
 
 # 🔥 LitCode Solutions
 
-[![Total](https://img.shields.io/badge/Total-13-blue?style=flat-square)](.)
-[![Easy](https://img.shields.io/badge/Easy-5-2ea44f?style=flat-square)](.)
+[![Total](https://img.shields.io/badge/Total-14-blue?style=flat-square)](.)
+[![Easy](https://img.shields.io/badge/Easy-6-2ea44f?style=flat-square)](.)
 [![Medium](https://img.shields.io/badge/Medium-8-d97706?style=flat-square)](.)
 [![Hard](https://img.shields.io/badge/Hard-0-dc2626?style=flat-square)](.)
 
-*Auto-synced by [LitCode](https://github.com/Satharva2004/LitCode) · Last updated 2026-07-14*
+*Auto-synced by [LitCode](https://github.com/Satharva2004/LitCode) · Last updated 2026-07-15*
 
 </div>
 
@@ -17,17 +17,17 @@
 
 | Difficulty | Count | Progress |
 |:----------|------:|---------|
-| 🟢 Easy | 5 | `█████░░░░░░░` |
+| 🟢 Easy | 6 | `█████░░░░░░░` |
 | 🟡 Medium | 8 | `███████░░░░░` |
 | 🔴 Hard | 0 | `░░░░░░░░░░░░` |
-| **Total** | **13** | |
+| **Total** | **14** | |
 
 ---
 
 ## 🗂️ Problems by Topic
 
 <details>
-<summary><b>Uncategorized</b> &nbsp;·&nbsp; 13 problems</summary>
+<summary><b>Uncategorized</b> &nbsp;·&nbsp; 14 problems</summary>
 
 | # | Problem | Difficulty | Solved |
 |---|---------|------------|--------|
@@ -43,6 +43,7 @@
 | 200 | [Number of Islands](./200-number-of-islands) | 🟡 Medium | 2026-07-12 |
 | 399 | [Evaluate Division](./399-evaluate-division) | 🟡 Medium | 2026-07-13 |
 | 1256 | [Rank Transform of an Array](./1256-rank-transform-of-an-array) | 🟢 Easy | 2026-07-12 |
+| 3995 | [GCD of Odd and Even Sums](./3995-gcd-of-odd-and-even-sums) | 🟢 Easy | 2026-07-15 |
 | 4135 | [Concatenate Non-Zero Digits and Multiply by Sum I](./4135-concatenate-non-zero-digits-and-multiply-by-sum-i) | 🟢 Easy | 2026-07-07 |
 
 </details>
