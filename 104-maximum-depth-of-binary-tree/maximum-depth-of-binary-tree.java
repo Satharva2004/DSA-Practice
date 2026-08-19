@@ -14,15 +14,20 @@
  * }
  */
 class Solution {
-    int sum = 0;
     public int maxDepth(TreeNode root) {
-        dfs(root, 1);
-        return sum;
-    }
-    public void dfs(TreeNode root, int count){
-        if(root == null) return;
-        sum = Math.max(count, sum);
-        dfs(root.left, count+1);
-        dfs(root.right, count+1);
+        Stack<Pair> stack = new Stack<>();
+        int res = 0;
+        stack.push(new Pair(root, 1));
+        while(!stack.isEmpty()){
+            Pair<TreeNode, Integer> curr = stack.pop();
+            TreeNode node = curr.getKey();
+            int depth = curr.getValue();
+            if(node != null){
+                res = Math.max(res, depth);
+                stack.push(new Pair(node.left, depth+1));
+                stack.push(new Pair(node.right, depth+1));
+            }
+        }
+        return res;
     }
 }
